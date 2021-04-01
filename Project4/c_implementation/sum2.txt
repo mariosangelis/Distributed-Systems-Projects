@@ -1,0 +1,12 @@
+	PRN "Hello from execution nr"
+	PRN "Summing up from 1 to 10"
+	SET $n 1
+	SET $sum 0
+#LOOP BGT $n 10 #LEND
+	SLP 1
+	ADD $sum $sum $n
+	ADD $n $n 1
+	BRA #LOOP
+	#LEND PRN "Result is " $sum
+	ADD $sum $sum 0
+	RET

@@ -1,0 +1,30 @@
+	SET $val 0
+	
+	
+	
+	
+	
+  
+	SET $myid  $arg1
+	SET $nxtid $arg2
+	SET $prvid $arg3
+	SET $cnt   $arg4
+	SET $time  $arg5
+	PRN "nxtid is " $nxtid
+	BGT $myid 1 #L1
+	PRN $myid "sending 1"
+	SND $nxtid 1
+	SUB $cnt $cnt 1
+#L1  SLP $time
+	RCV $prvid $val
+	PRN $myid "received " $val
+	BEQ $cnt 0 #L2
+	SLP $time
+	ADD $val $val 1
+	PRN $myid "sending " $val
+	SND $nxtid $val
+	SUB $cnt $cnt 1
+	PRN $myid "cnt is " $cnt
+	BEQ $cnt 0 #L2
+	BRA #L1
+#L2  RET

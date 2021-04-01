@@ -1,0 +1,14 @@
+	PRN "Hello from execution 2"
+	SET $n 1
+	SET $sum 0
+	SET $sum2 0
+#LOOP BGT $n $arg1 #LEND
+	SLP 5
+	ADD $sum $sum $n
+	ADD $n $n 1
+	BRA #LOOP
+#LEND PRN "Result is " $sum
+	RCV 1 "sum is " $sum2
+	PRN "Received sum = " $sum2
+	SND 1 "ACK"
+	RET

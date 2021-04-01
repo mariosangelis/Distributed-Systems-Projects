@@ -1,0 +1,4 @@
+#LOOP ADD $sum 1 1
+	SUB $sum $sum 1
+	BGT 10 1 #LOOP
+	RET
